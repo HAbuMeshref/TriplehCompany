@@ -47,7 +47,7 @@ window.translations = {
         contactPhoneLabel: "الهاتف:",
         contactPhone: "+962 XX XXX XXXX",
         contactEmailLabel: "البريد الإلكتروني:",
-        contactEmail: "info@triplehmarketing.com",
+        contactEmail: "info@triplehjo.com",
         contactHoursLabel: "ساعات العمل:",
         contactHours: "السبت - الخميس: 9:00 ص - 6:00 م",
 
@@ -155,7 +155,7 @@ window.translations = {
         contactPhoneLabel: "Phone:",
         contactPhone: "+962 XX XXX XXXX",
         contactEmailLabel: "Email:",
-        contactEmail: "info@triplehmarketing.com",
+        contactEmail: "info@triplehjo.com",
         contactHoursLabel: "Working Hours:",
         contactHours: "Saturday - Thursday: 9:00 AM - 6:00 PM",
 
