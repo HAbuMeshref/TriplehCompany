@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض الصور - رفع وعرض</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .upload-section {
+            padding: 40px;
+            background: #f8f9fa;
+        }
+
+        .upload-area {
+            border: 3px dashed #4CAF50;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            background: white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .upload-area:hover {
+            border-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(76, 175, 80, 0.1);
+        }
+
+        .upload-area.dragover {
+            border-color: #45a049;
+            background: #f1f8e9;
+        }
+
+        .upload-icon {
+            font-size: 4em;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .upload-text {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .upload-hint {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .url-upload {
+            margin-top: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .url-input-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .url-input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .url-input:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        .url-btn {
+            padding: 12px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s ease;
+        }
+
+        .url-btn:hover {
+            background: #45a049;
+        }
+
+        .url-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .gallery-section {
+            padding: 40px;
+        }
+
+        .gallery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .gallery-title {
+            font-size: 1.8em;
+            color: #333;
+        }
+
+        .image-counter {
+            background: #4CAF50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .image-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .image-container {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-actions {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            gap: 5px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-card:hover .image-actions {
+            opacity: 1;
+        }
+
+        .action-btn {
+            padding: 8px;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: white;
+        }
+
+        .delete-btn {
+            color: #f44336;
+        }
+
+        .download-btn {
+            color: #2196F3;
+        }
+
+        .image-info {
+            padding: 15px;
+        }
+
+        .image-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .image-details {
+            font-size: 0.8em;
+            color: #666;
+        }
+
+        .empty-gallery {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+
+        .empty-gallery-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .clear-all-btn {
+            background: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background 0.3s ease;
+        }
+
+        .clear-all-btn:hover {
+            background: #da190b;
+        }
+
+        .error-message {
+            background: #ffebee;
+            color: #c62828;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .success-message {
+            background: #e8f5e8;
+            color: #2e7d32;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #4CAF50;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .upload-section,
+            .gallery-section {
+                padding: 20px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🖼️ معرض الصور</h1>
+            <p>ارفع صورك واعرضها بسهولة</p>
+        </div>
+
+        <div class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📤</div>
+                <div class="upload-text">اسحب واسقط الصور هنا أو انقر للاختيار</div>
+                <div class="upload-hint">JPG, PNG, GIF, WebP (حد أقصى 5MB لكل صورة)</div>
+                <input type="file" id="fileInput" multiple accept="image/*">
+            </div>
+
+            <div class="url-upload">
+                <h3>🔗 أضف صورة من رابط</h3>
+                <div class="url-input-group">
+                    <input type="url" id="urlInput" class="url-input" placeholder="الصق رابط الصورة هنا...">
+                    <button id="urlBtn" class="url-btn">إضافة</button>
+                </div>
+                <div id="urlError" class="error-message"></div>
+                <div id="urlSuccess" class="success-message"></div>
+            </div>
+        </div>
+
+        <div class="gallery-section">
+            <div class="gallery-header">
+                <h2 class="gallery-title">معرض الصور</h2>
+                <div>
+                    <span id="imageCounter" class="image-counter">0 صور</span>
+                    <button id="clearAllBtn" class="clear-all-btn" style="display: none; margin-right: 10px;">مسح الكل</button>
+                </div>
+            </div>
+
+            <div id="galleryGrid" class="gallery-grid"></div>
+            
+            <div id="emptyGallery" class="empty-gallery">
+                <div class="empty-gallery-icon">🖼️</div>
+                <h3>لا توجد صور بعد</h3>
+                <p>ابدأ برفع صورك لعرضها هنا</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let images = [];
+        let imageIdCounter = 0;
+
+        // عناصر DOM
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const urlInput = document.getElementById('urlInput');
+        const urlBtn = document.getElementById('urlBtn');
+        const urlError = document.getElementById('urlError');
+        const urlSuccess = document.getElementById('urlSuccess');
+        const galleryGrid = document.getElementById('galleryGrid');
+        const emptyGallery = document.getElementById('emptyGallery');
+        const imageCounter = document.getElementById('imageCounter');
+        const clearAllBtn = document.getElementById('clearAllBtn');
+
+        // إعداد الأحداث
+        uploadArea.addEventListener('click', () => fileInput.click());
+        uploadArea.addEventListener('dragover', handleDragOver);
+        uploadArea.addEventListener('dragleave', handleDragLeave);
+        uploadArea.addEventListener('drop', handleDrop);
+        fileInput.addEventListener('change', handleFileSelect);
+        urlBtn.addEventListener('click', handleUrlUpload);
+        urlInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleUrlUpload();
+        });
+        clearAllBtn.addEventListener('click', clearAllImages);
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        }
+
+        function handleDragLeave(e) {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            handleFiles(files);
+        }
+
+        function handleFileSelect(e) {
+            const files = e.target.files;
+            handleFiles(files);
+        }
+
+        function handleFiles(files) {
+            Array.from(files).forEach(file => {
+                if (file.type.startsWith('image/')) {
+                    if (file.size > 5 * 1024 * 1024) { // 5MB
+                        showError('حجم الصورة كبير جداً. الحد الأقصى 5MB');
+                        return;
+                    }
+                    addImageFromFile(file);
+                }
+            });
+        }
+
+        function addImageFromFile(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const imageObj = {
+                    id: ++imageIdCounter,
+                    src: e.target.result,
+                    name: file.name,
+                    size: formatFileSize(file.size),
+                    type: file.type,
+                    uploadDate: new Date().toLocaleString('ar-EG')
+                };
+                images.push(imageObj);
+                updateGallery();
+                showSuccess('تم رفع الصورة بنجاح');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        async function handleUrlUpload() {
+            const url = urlInput.value.trim();
+            if (!url) {
+                showUrlError('الرجاء إدخال رابط الصورة');
+                return;
+            }
+
+            // فحص صحة الرابط
+            const urlPattern = /^https?:\/\/.+\.(jpg|jpeg|png|gif|webp|svg)$/i;
+            if (!urlPattern.test(url)) {
+                showUrlError('الرجاء إدخال رابط صحيح للصورة');
+                return;
+            }
+
+            urlBtn.disabled = true;
+            urlBtn.innerHTML = '<span class="loading"></span> جاري التحميل...';
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('فشل في تحميل الصورة');
+
+                const blob = await response.blob();
+                if (!blob.type.startsWith('image/')) {
+                    throw new Error('الرابط لا يشير إلى صورة صحيحة');
+                }
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const imageObj = {
+                        id: ++imageIdCounter,
+                        src: e.target.result,
+                        name: `صورة من الرابط ${images.length + 1}`,
+                        size: formatFileSize(blob.size),
+                        type: blob.type,
+                        uploadDate: new Date().toLocaleString('ar-EG'),
+                        originalUrl: url
+                    };
+                    images.push(imageObj);
+                    updateGallery();
+                    showUrlSuccess('تم إضافة الصورة بنجاح');
+                    urlInput.value = '';
+                };
+                reader.readAsDataURL(blob);
+
+            } catch (error) {
+                showUrlError('فشل في تحميل الصورة. تأكد من صحة الرابط.');
+            } finally {
+                urlBtn.disabled = false;
+                urlBtn.innerHTML = 'إضافة';
+            }
+        }
+
+        function updateGallery() {
+            if (images.length === 0) {
+                galleryGrid.style.display = 'none';
+                emptyGallery.style.display = 'block';
+                clearAllBtn.style.display = 'none';
+            } else {
+                galleryGrid.style.display = 'grid';
+                emptyGallery.style.display = 'none';
+                clearAllBtn.style.display = 'inline-block';
+            }
+
+            imageCounter.textContent = `${images.length} صور`;
+            
+            galleryGrid.innerHTML = images.map(image => `
+                <div class="image-card">
+                    <div class="image-container">
+                        <img src="${image.src}" alt="${image.name}">
+                        <div class="image-actions">
+                            <button class="action-btn download-btn" onclick="downloadImage(${image.id})" title="تحميل">
+                                📥
+                            </button>
+                            <button class="action-btn delete-btn" onclick="deleteImage(${image.id})" title="حذف">
+                                🗑️
+                            </button>
+                        </div>
+                    </div>
+                    <div class="image-info">
+                        <div class="image-name">${image.name}</div>
+                        <div class="image-details">
+                            ${image.size} • ${image.uploadDate}
+                            ${image.originalUrl ? '<br>من رابط خارجي' : ''}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function deleteImage(id) {
+            if (confirm('هل أنت متأكد من حذف هذه الصورة؟')) {
+                images = images.filter(img => img.id !== id);
+                updateGallery();
+                showSuccess('تم حذف الصورة');
+            }
+        }
+
+        function downloadImage(id) {
+            const image = images.find(img => img.id === id);
+            if (image) {
+                const link = document.createElement('a');
+                link.href = image.src;
+                link.download = image.name;
+                link.click();
+            }
+        }
+
+        function clearAllImages() {
+            if (confirm('هل أنت متأكد من حذف جميع الصور؟')) {
+                images = [];
+                updateGallery();
+                showSuccess('تم حذف جميع الصور');
+            }
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function showError(message) {
+            // يمكن إضافة نظام إشعارات هنا
+            alert(message);
+        }
+
+        function showSuccess(message) {
+            // يمكن إضافة نظام إشعارات هنا
+            console.log(message);
+        }
+
+        function showUrlError(message) {
+            urlError.textContent = message;
+            urlError.style.display = 'block';
+            urlSuccess.style.display = 'none';
+            setTimeout(() => {
+                urlError.style.display = 'none';
+            }, 3000);
+        }
+
+        function showUrlSuccess(message) {
+            urlSuccess.textContent = message;
+            urlSuccess.style.display = 'block';
+            urlError.style.display = 'none';
+            setTimeout(() => {
+                urlSuccess.style.display = 'none';
+            }, 3000);
+        }
+
+        // تهيئة المعرض
+        updateGallery();
+    </script>
+</body>
+</html>
