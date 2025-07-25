@@ -1,77 +1,352 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
+<html lang="ar" dir="rtl">
+
+<head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Triple H Marketing</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-gray-50 text-gray-800">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-key="pageTitle">Triple H Marketing - شركة التسويق والبروموشن</title>
+    <link rel="stylesheet" href="Extension/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+</head>
+
+<body>
     <!-- Header -->
-    <header class="bg-white shadow py-6 mb-8">
-      <div class="container text-center">
-        <h1 class="text-3xl font-bold">Triple H Marketing</h1>
-        <p class="text-lg text-gray-600">Promotional & Event Services</p>
-      </div>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/3h4.png" alt="Triple H Logo" class="logo-img" />
+            </div>
+            <!-- <div class="logo" data-key="logoText">Triple H Marketing</div> -->
+            <nav class="nav-menu">
+                <a href="#home" data-key="navHome"></a>
+                <a href="#services" data-key="navServices"></a>
+                <a href="#about" data-key="navAbout"></a>
+                <a href="#gallery" data-key="navGallery"></a>
+                <a href="#contact" data-key="navContact"> </a>
+            </nav>
+
+        </div>
+        <!-- <button id="lang-toggle-btn" style="
+          margin-left: 20px;
+          cursor: pointer;
+          padding: 8px 16px;
+          font-size: 14px;
+          border-radius: 6px;
+          border: 1px solid #007bff;
+          background-color: #007bff;
+          color: white;
+          transition: background-color 0.3s ease, color 0.3s ease;
+        ">
+          EN
+        </button>  -->
     </header>
 
-    <!-- Promoter Service -->
-    <section class="container mb-10">
-      <h2 class="text-2xl font-semibold mb-4">Promoter Service / خدمة البروموتر</h2>
-      <p class="mb-2">We support your marketing campaigns and enhance brand presence.</p>
-      <p>نُقدّم خدمة البروموتر لتعزيز حملاتكم التسويقية وحضور علامتكم.</p>
-      <ul class="list-disc ps-5 mt-3">
-        <li>Engaging product explanations / شرح جذاب للمنتج</li>
-        <li>Samples and gifts / توزيع عينات وهدايا</li>
-        <li>Interactive events / فعاليات ومسابقات</li>
-      </ul>
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 data-key="heroTitle"></h1>
+            
+            <h4 class="Phero" data-key="heroDesc"></h4>
+            <a href="#services" class="btn" data-key="heroBtn"></a>
+        </div>
     </section>
 
-    <!-- Promotion & Production -->
-    <section class="bg-white py-10">
-      <div class="container">
-        <h2 class="text-2xl font-semibold mb-4">Promotion & Production / خدمات البروموشن والإنتاج</h2>
-        <ul class="list-disc ps-5">
-          <li>Modern booths / بوثات عرض حديثة</li>
-          <li>Printed posters / بوسترات احترافية</li>
-          <li>Team uniforms / يونيفورم رسمي</li>
-          <li>Stickers & signage / إشعارات وستيكيرات</li>
-        </ul>
-        <p class="mt-3">We ensure a professional marketing experience that meets your goals.</p>
-      </div>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title" data-key="servicesTitle"></h2>
+
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 data-key="promoterTitle"></h3>
+                    <p data-key="promoterDesc"></p>
+                    <ul class="service-list">
+                        <li data-key="promoterList1"></li>
+                        <li data-key="promoterList2"></li>
+                        <li data-key="promoterList3"></li>
+                        <li data-key="promoterList4"></li>
+                    </ul>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-theater-masks"></i>
+
+                    </div>
+                    <h3 data-key="productionTitle"></h3>
+                    <p data-key="productionDesc"></p>
+                    <ul class="service-list">
+                        <li data-key="productionList1"></li>
+                        <li data-key="productionList2"></li>
+                        <li data-key="productionList3"></li>
+                        <li data-key="productionList4"></li>
+                    </ul>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 data-key="usherTitle"></h3>
+                    <p data-key="usherDesc"></p>
+                    <ul class="service-list">
+                        <li data-key="usherList1"></li>
+                        <li data-key="usherList2"></li>
+                        <li data-key="usherList3"></li>
+                        <li data-key="usherList4"></li>
+                    </ul>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 data-key="supervisorTitle"></h3>
+                    <p data-key="supervisorDesc"></p>
+                    <ul class="service-list">
+                        <li data-key="supervisorList1"></li>
+                        <li data-key="supervisorList2"></li>
+                        <li data-key="supervisorList3"></li>
+                        <li data-key="supervisorList4"></li>
+                    </ul>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 data-key="WebsiteisTitle"></h3> 
+                    <p data-key="WebsitesorDesc"></p> 
+
+
+                    <ul class="service-list">
+                        <li data-key="Websiteist1"></li>
+                        <li data-key="Websiteist2"></li>
+                        <li data-key="Websiteist3"></li>
+                        <li data-key="Websiteist4"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Ushers Service -->
-    <section class="container py-10">
-      <h2 class="text-2xl font-semibold mb-4">Ushers Services / خدمة الأشرز</h2>
-      <ul class="list-disc ps-5">
-        <li>Organized entry/exit / تنظيم الدخول والخروج</li>
-        <li>Welcoming guests / استقبال الضيوف</li>
-        <li>Movement control / تنظيم الحركة</li>
-        <li>Inquiry support / الرد على الاستفسارات</li>
-        <li>Formal appearance / الزي الرسمي</li>
-      </ul>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h2 data-key="aboutTitle">من نحن</h2>
+                    <div class="about-paragraphs">
+                        <p data-key="aboutPara1"><span class="highlight" data-key="aboutPara1Highlight">Triple H
+                                Marketing</span>
+                        </p>
+                        <p data-key="aboutPara2"></p>
+
+                        <p data-key="aboutPara3"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Supervisor Service -->
-    <section class="bg-white py-10">
-      <div class="container">
-        <h2 class="text-2xl font-semibold mb-4">Field Supervision / خدمة المشرف الميداني</h2>
-        <ul class="list-disc ps-5">
-          <li>Monitor promoters/ushers / مراقبة الأداء</li>
-          <li>Team coordination / التنسيق مع الفريق</li>
-          <li>Quick issue handling / اتخاذ قرارات سريعة</li>
-          <li>Performance reports / تقارير دورية</li>
-          <li>Professional leadership / قيادة احترافية</li>
-        </ul>
-      </div>
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-key="statClientsNumber">500+</div>
+                    <div class="stat-label" data-key="statClientsLabel">عميل راضٍ</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-key="statCampaignsNumber">1000+</div>
+                    <div class="stat-label" data-key="statCampaignsLabel">حملة تسويقية</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-key="statExperienceNumber">5+</div>
+                    <div class="stat-label" data-key="statExperienceLabel">سنوات خبرة</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-key="statSatisfactionNumber">100%</div>
+                    <div class="stat-label" data-key="statSatisfactionLabel">رضا العملاء</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title" data-key="galleryTitle">معرض أعمالنا</h2>
+           <p style="text-align: center; font-size: 1.2rem; margin-bottom: 30px; background: linear-gradient(135deg, #b75fc6, #e08966); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-key="galleryDesc">
+</p>
+
+            <div class="gallery-grid" id="gallery-grid">
+                <div class="gallery-item" onclick="openPopup(this)">
+                    <img src="images/Customer-success-process.png" alt="عمل بروموتر" />
+                    <div class="gallery-caption">
+                        <h4 data-key="galleryItem1Title"></h4>
+                        <p data-key="galleryItem1Desc"></p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openPopup(this)">
+                    <img src="images/Orgevent.png" alt="تنظيم فعالية" />
+                    <div class="gallery-caption">
+                        <h4 data-key="galleryItem2Title"></h4>
+                        <p data-key="galleryItem2Desc"></p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openPopup(this)">
+                    <img src="images/Boothwidth.jpg" alt="بوث عرض" />
+                    <div class="gallery-caption">
+                        <h4 data-key="galleryItem3Title"></h4>
+                        <p data-key="galleryItem3Desc"></p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openPopup(this)">
+                    <img src="images/teamwork.jpeg" alt="فريق العمل" />
+                    <div class="gallery-caption">
+                        <h4 data-key="galleryItem4Title"></h4>
+                        <p data-key="galleryItem4Desc"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Popup Image Viewer -->
+        <div id="image-popup" onclick="closePopup()">
+            <span class="close-btn">&times;</span>
+            <img id="popup-img" src="" alt="صورة مكبرة" />
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" data-key="contactTitle"></h2>
+
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h3 class="contact-item-header" onclick="toggleContactInfo()">
+                        <i class="fas fa-map-marker-alt"></i>&nbsp;
+                        <span data-key="contactInfoTitle"></span>
+                        <span></span>
+                        <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+
+                    </h3>
+
+                    <!--Dropdown -->
+                    <div id="collapsible-contact" class="collapsible-content">
+                        <div class="contact-item">
+                            <div class="clickable-address" onclick="toggleMapDropdown()">
+                                <strong data-key="contactAddressLabel"></strong><br />
+                                <span data-key="contactAddress"></span>
+                                <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+
+                            </div>
+                        </div>
+                        <!-- wrapper-->
+                        <div class="contact-item" id="map-wrapper">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3389.5228497503104!2d35.82495807554164!3d31.97891382475821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c9f9b51dd293b%3A0x9df79a671a0a9b0b!2z2KfZhNis2K_ZiNmF2Kkg2KfZhNiv2KfZhiDYp9mE2YXYs9mE2YrYqQ!5e0!3m2!1sar!2sjo!4v1721307089401!5m2!1sar!2sjo"
+                                width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen=""
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+
+                            <div>
+                                <strong data-key="contactPhoneLabel"></strong><br />
+                                <span data-key="contactPhone"></span>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong data-key="contactEmailLabel"></strong><br />
+                                <span data-key="contactEmail"></span>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+
+                            <div>
+                                <strong data-key="contactHoursLabel"></strong><br />
+                                <span data-key="contactHours"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center py-6 mt-10">
-      <p>&copy; 2025 Triple H Marketing. All rights reserved.</p>
-      <p>Designed with ❤️ using Tailwind & Bootstrap</p>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content-map-wrapper">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3 data-key="footerTitle">Triple H Marketing</h3>
+                        <p data-key="footerDesc">شريككم الأمثل في التسويق والبروموشن. نقدم حلول تسويقية متكاملة تهدف إلى
+                            تعزيز حضور علامتكم التجارية في السوق.</p>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3 data-key="footerServicesTitle">خدماتنا</h3>
+                        <p><a href="#services" data-key="footerService1">خدمة البروموتر</a></p>
+                        <p><a href="#services" data-key="footerService2">البروموشن والإنتاج</a></p>
+                        <p><a href="#services" data-key="footerService3">خدمة الأشرز</a></p>
+                        <p><a href="#services" data-key="footerService4">الإشراف الميداني</a></p>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3 data-key="footerLinksTitle">روابط مفيدة</h3>
+                        <p><a href="#home" data-key="footerLinkHome">الرئيسية</a></p>
+                        <p><a href="#about" data-key="footerLinkAbout">من نحن</a></p>
+                        <p><a href="#contact" data-key="footerLinkContact">تواصل معنا</a></p>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3 data-key="footerFollowTitle">تابعنا</h3>
+                        <p data-key="footerFollowDesc">ابقوا على تواصل معنا عبر وسائل التواصل الاجتماعي للحصول على آخر
+                            العروض والأخبار.</p>
+                    </div>
+                </div>
+
+                <div class="footer-map">
+                    <h3 data-key="footerMapTitle">موقعنا على الخريطة</h3>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3389.5228497503104!2d35.82495807554164!3d31.97891382475821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c9f9b51dd293b%3A0x9df79a671a0a9b0b!2z2KfZhNis2K_ZiNmF2Kkg2KfZhNiv2KfZhiDYp9mE2YXYs9mE2YrYqQ!5e0!3m2!1sar!2sjo!4v1721307089401!5m2!1sar!2sjo"
+                        width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Triple H Marketing. <span data-key="footerRights">جميع الحقوق محفوظة.</span></p>
+            </div>
+        </div>
     </footer>
-  </body>
+
+    <script src="Extension/translations.js"></script>
+    <script src="Extension/script.js"></script>
+
+</body>
+
 </html>
