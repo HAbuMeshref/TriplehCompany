@@ -179,7 +179,7 @@
        font-size: 98px;
        margin-bottom: 1.5rem;
        font-weight: 300;
-       background: linear-gradient(135deg, #f1eef1, rgb(247, 244, 244));
+       background: linear-gradient(135deg, #f1eef1, rgb(247, 244, 244)); 
        -webkit-background-clip: text;
        -webkit-text-fill-color: transparent;
        background-clip: text;
@@ -205,7 +205,7 @@
    }
 
    .Phero {
-       background: linear-gradient(135deg, #853793, rgb(247, 244, 244));
+       background: linear-gradient(135deg, #f4f1f5, rgb(247, 244, 244));
        -webkit-background-clip: text;
        -webkit-text-fill-color: transparent;
        background-clip: text;
