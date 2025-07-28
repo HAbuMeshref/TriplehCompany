@@ -929,3 +929,11 @@
        font-size: 1.2em;
        vertical-align: middle;
    }
+
+   .gradient-link {
+  background: linear-gradient(135deg, #853793, #eda68a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+  text-decoration: underline;
+}

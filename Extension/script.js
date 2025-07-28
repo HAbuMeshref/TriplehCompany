@@ -152,4 +152,21 @@ if (langBtn) {
   window.addEventListener('load', animateStats);
 
 
-  
+  const openBtn = document.getElementById('openModalBtn');
+const modal = document.getElementById('myModal');
+const closeBtn = document.getElementById('closeModalBtn');
+
+openBtn.onclick = (e) => {
+  e.preventDefault(); // يمنع الرابط من تصفح صفحة أخرى
+  modal.style.display = 'block';
+};
+
+closeBtn.onclick = () => {
+  modal.style.display = 'none';
+};
+
+window.onclick = (event) => {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+};

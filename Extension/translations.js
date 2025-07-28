@@ -67,6 +67,7 @@ window.translations = {
         aboutPara1: "نحن في Triple H Marketing نؤمن بأن النجاح يكمن في التفاصيل. نقدم حلول تسويقية متكاملة تهدف إلى تعزيز حضور علامتكم التجارية وزيادة تفاعل العملاء مع منتجاتكم.",
         aboutPara2: "فريقنا المؤهل يضمن أن كل بروموتر ومشرف وأشر يصبح سفيراً حقيقياً لعلامتكم التجارية، مما يسهم في رفع نسبة المبيعات وبناء علاقات قوية مع العملاء.",
         aboutPara3: "نحن نلتزم بتقديم خدمة عالية الجودة تلبي تطلعاتكم وتحقق أهدافكم التسويقية بكفاءة واحترافية.",
+        aboutPara4: "Triple H Marketing is more than just a name, it’s a tribute to legacy, love, and leadership. Founded in memory of Halah Helal Al Hunaiti, our company carries her initials and spirit in every step we take. Her values: integrity, kindness, and resilience form the foundation of everything we do.Based in Jordan, Triple H Marketing is a boutique agency built to empower businesses with creative, data-driven, and impactful marketing solutions. We specialize in crafting compelling brand narratives, delivering innovative campaigns, and driving measurable results across digital and traditional platforms.At Triple H, we believe marketing is not just about visibility, it's about meaning, emotion, and connection. Every client we work with becomes a part of our extended family, and every project is approached with care, creativity, and a relentless pursuit of excellence.We exist to turn ideas into impact, honoring the past, transforming the present, and building the future",
         statClientsNumber: "500+",
         statClientsLabel: "عميل راضٍ",
         statCampaignsNumber: "1000+",
@@ -96,9 +97,9 @@ window.translations = {
         footerMapTitle: "موقعنا على الخريطة",
 
         footerRights: "جميع الحقوق محفوظة.",
-        
+
         WebsitesorDesc: "We craft high-quality websites, web systems, and mobile applications tailored to your business needs.",
-        
+
         Websiteist1: "Website Design and Development",
         Websiteist2: "Professional Web Applications Programming",
         Websiteist3: "Mobile Apps Development (iOS & Android)",
@@ -174,6 +175,8 @@ window.translations = {
         aboutPara1: "At Triple H Marketing, we believe success lies in the details. We provide integrated marketing solutions aimed at enhancing your brand presence and increasing customer engagement with your products.",
         aboutPara2: "Our qualified team ensures that every promoter, supervisor, and usher becomes a true ambassador of your brand, contributing to increased sales and building strong customer relationships.",
         aboutPara3: "We are committed to delivering high-quality service that meets your expectations and achieves your marketing goals efficiently and professionally.",
+        aboutPara4: "Triple H Marketing is more than just a name, it’s a tribute to legacy, love, and leadership. Founded in memory of Halah Helal Al Hunaiti, our company carries her initials and spirit in every step we take. Her values: integrity, kindness, and resilience form the foundation of everything we do.Based in Jordan, Triple H Marketing is a boutique agency built to empower businesses with creative, data-driven, and impactful marketing solutions. We specialize in crafting compelling brand narratives, delivering innovative campaigns, and driving measurable results across digital and traditional platforms.At Triple H, we believe marketing is not just about visibility, it's about meaning, emotion, and connection. Every client we work with becomes a part of our extended family, and every project is approached with care, creativity, and a relentless pursuit of excellence.We exist to turn ideas into impact, honoring the past, transforming the present, and building the future",
+
         statClientsNumber: "500+",
         statClientsLabel: "Satisfied Clients",
         statCampaignsNumber: "1000+",
