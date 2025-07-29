@@ -937,3 +937,14 @@
   cursor: pointer;
   text-decoration: underline;
 }
+
+.footer-section a i {
+    color: #fff; /* أو اللون الذي يناسب التصميم */
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+.footer-section a:hover i {
+    transform: scale(1.2);
+    color: #ffcc00; /* مثال لتغيير اللون عند التحويم */
+}
